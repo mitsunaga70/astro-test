@@ -1,0 +1,24 @@
+.c-list {
+  > li {
+    @include max(fz, 16);
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    display: flex;
+    @include max(gap, 8);
+
+    &:not(:last-of-type) {
+      @include max(mb, 8);
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      @include max(w, 4);
+      @include max(h, 4);
+      border-radius: 100%;
+      flex-shrink: 0;
+      @include max(mt, 8);
+      background-color: $text-color;
+    }
+  }
+}

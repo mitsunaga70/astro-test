@@ -1,0 +1,74 @@
+/* ------------------------------------------------------------------
+ Variables
+------------------------------------------------------------------ */
+// color
+$text-color: #323232;
+$text-subColor: #909090;
+$link-color: #de3300;
+$bg-color: #fff;
+$section_bg-color: #fcf4e8;
+
+$border-color: #f0f0f0;
+
+$main-color: #009944;
+
+$accent-color: #efac9c;
+$sub-color: #f5f5f5;
+$nav-color: #f5f5f7;
+$select-color: #fff;
+$select-bg: #555352;
+
+$white: #fff;
+$black: #2c2c2c;
+$gray: #f7f7f7;
+$red: #de3300;
+
+$weight-t: 100;
+$weight-l: 300;
+$weight-r: 400;
+$weight-m: 500;
+$weight-semib: 600;
+$weight-b: 700;
+$weight-xb: 800;
+
+// transition
+$hover: 0.2s ease-out;
+
+//gutter
+$spGutter: 4vw;
+$pcGutter: 4.722222222vw;
+
+//header height
+$pcHeaderH: 122;
+$spHeaderH: 70;
+
+// section margin & padding
+$section-space_pc: (
+  large: 180,
+  middle: 96,
+  small: 64,
+  xsmall: 32,
+);
+$section-space_sp: (
+  large: 90,
+  middle: 48,
+  small: 32,
+  xsmall: 32,
+);
+
+// sp 100vh
+$vh100: calc(var(--vh, 1vh) * 100);
+
+// transition
+$hover: 0.2s ease-out;
+// z-index
+$z-movieBg: 2999;
+$z-navTrigger: 2100;
+$z-header: 2000;
+$z-transition: 1950;
+$z-hideNav: 1900;
+$z-hideNavBg: 1889;
+$z-history: 1500;
+$z-scroll: 1500;
+$z-loading: 5000;
+$z-modal: 4000;

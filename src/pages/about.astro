@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+
+import { pageInfo } from "../libs/constants";
+import { Image } from "astro:assets";
+import { slide } from "astro:transitions";
+
+import Container from "../components/Container.astro";
+
+const pageKey = "TOP";
+const className = "pageTop";
+---
+
+<Layout pageClass={className}>
+  <div class="wrap">
+    <section class="section" transition:animate={slide({ duration: "0.2s" })}>
+      <Container>
+        <SectionTitle ja="テキスト" en="テキスト" />
+        <a href="/">top</a>
+      </Container>
+    </section>
+    <section class="section" transition:animate={slide({ duration: "0.4s" })}>
+      <Container>
+        <SectionTitle ja="テキスト" en="テキスト" />
+        <a href="/">top</a>
+      </Container>
+    </section>
+    <section class="section" transition:animate={slide({ duration: "0.6s" })}>
+      <Container>
+        <SectionTitle ja="テキスト" en="テキスト" />
+        <a href="/">top</a>
+      </Container>
+    </section>
+    <section class="section" transition:animate={slide({ duration: "0.8s" })}>
+      <Container>
+        <SectionTitle ja="テキスト" en="テキスト" />
+        <a href="/">top</a>
+      </Container>
+    </section>
+  </div>
+</Layout>
+
+<script></script>
+<style lang="scss">
+  .wrap {
+    display: flex;
+    gap: 30px;
+  }
+  section {
+    background-color: red;
+    width: 500px;
+  }
+</style>

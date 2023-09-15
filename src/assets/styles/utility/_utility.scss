@@ -1,0 +1,312 @@
+/* utility CSS */
+// 改行 切り替え
+br {
+  &.pc {
+    @include bp(sp) {
+      display: none !important;
+    }
+  }
+
+  &.sp {
+    @include bp(pc) {
+      display: none !important;
+    }
+  }
+}
+// 画像 切り替え
+img {
+  &.pc {
+    @include bp(sp) {
+      display: none !important;
+    }
+  }
+
+  &.sp {
+    @include bp(pc) {
+      display: none !important;
+    }
+  }
+}
+
+.u-bt {
+  border-top: solid 1px $gray;
+}
+
+.u-bb {
+  border-bottom: solid 1px $gray;
+}
+
+.u-bl {
+  border-left: solid 1px $gray;
+}
+
+.u-br {
+  border-right: solid 1px $gray;
+}
+
+// 色
+.u-mainColor {
+  color: $main-color !important;
+}
+
+.u-subColor {
+  color: $sub-color !important;
+}
+
+.u-white {
+  color: $white !important;
+}
+
+.u-gray {
+  color: $gray !important;
+}
+
+.u-black {
+  color: $black !important;
+}
+
+.u-red {
+  color: $red !important;
+}
+
+// 背景色
+.u-bgWhite {
+  background-color: $white !important;
+}
+
+.u-bgGray {
+  background-color: $gray !important;
+}
+
+.u-bgBlack {
+  background-color: $black !important;
+}
+
+.u-bgMain {
+  background-color: $main-color !important;
+}
+
+.u-bgSub {
+  background-color: $sub-color !important;
+}
+
+.is-eventnone {
+  pointer-events: none !important;
+}
+
+.u-indent {
+  padding-left: 1em !important;
+  text-indent: -1em !important;
+}
+
+.u-pc {
+  @include bp(sp) {
+    display: none !important;
+  }
+}
+
+.u-sp {
+  @include bp(pc) {
+    display: none !important;
+  }
+}
+
+.u-show {
+  display: block !important;
+}
+
+.u-hide {
+  display: none !important;
+}
+
+.u-nolink {
+  pointer-events: none !important;
+}
+
+.u-b-none {
+  border: none !important;
+}
+
+
+/* Font
+------------------------------------------------------------------ */
+
+/* Text Decoration */
+
+// fontWeight
+@for $fw from 1 through 9 {
+  .u-fw#{$fw}00 {
+    font-weight: #{$fw * 100} !important;
+  }
+}
+
+.u-fNormal {
+  font-weight: normal !important;
+}
+
+.u-bold {
+  font-weight: bold !important;
+}
+
+.u-small {
+  font-size: 0.8em !important;
+}
+
+.u-large {
+  font-size: 1.5em !important;
+}
+
+.u-underline {
+  text-decoration: underline !important;
+}
+
+/* Text Position */
+.u-tac {
+  text-align: center !important;
+}
+
+.u-tal {
+  text-align: left !important;
+}
+
+.u-tar {
+  text-align: right !important;
+}
+
+.u-vat {
+  vertical-align: top !important;
+}
+
+.u-vam {
+  vertical-align: middle !important;
+}
+
+.u-vab {
+  vertical-align: bottom !important;
+}
+
+.u-vatb {
+  vertical-align: text-bottom !important;
+}
+
+/* LineHeight */
+.u-lh1 {
+  line-height: 1 !important;
+}
+@for $lh from 1 through 9 {
+  .u-lh1#{$lh} {
+    line-height: calc(1 + $lh / 10) !important;
+  }
+}
+/* Nowrap */
+.u-nowrap {
+  white-space: nowrap !important;
+}
+
+/* Text Size */
+@for $txt from 10 through 50 {
+  // PC
+  .u-txt#{$txt} {
+    font-size: #{$txt}px !important;
+  }
+  // SP
+  .u-txt#{$txt}_sp {
+    font-size: #{$txt}px !important;
+  }
+}
+/* Layout
+------------------------------------------------------------------ */
+
+/* Float */
+.u-fl {
+  float: left !important;
+}
+
+.u-fr {
+  float: right !important;
+}
+
+.u-ofh {
+  overflow: hidden !important;
+}
+
+/* Width */
+@for $w from 1 through 10 {
+  // PC
+  .u-w#{$w * 5} {
+    width: #{$w * 5%} !important;
+  }
+  // SP
+  .u-w#{$w * 5}_sp {
+    width: #{$w * 5%} !important;
+  }
+}
+
+/* Block
+------------------------------------------------------------------ */
+.u-d-block {
+  display: block !important;
+}
+
+.u-d-inline {
+  display: inline !important;
+}
+
+.u-d-inline-block {
+  display: inline-block !important;
+}
+
+.u-d-none {
+  display: none !important;
+}
+
+.u-d-flex {
+  display: flex !important;
+}
+
+.u-d-inline-flex {
+  display: inline-flex !important;
+}
+
+.u-d-flex-harf {
+  display: flex !important;
+}
+
+.u-d-flex-harf > * {
+  width: 50%;
+}
+
+// margin & padding
+@mixin space($type, $size) {
+  .u-#{$type}#{$size} {
+    @include max(#{$type}, $size);
+  }
+
+  // PC
+  @include bp(pc) {
+    .u-#{$type}#{$size}_pc {
+      @include max(#{$type}, $size);
+    }
+  }
+
+  // SP
+  @include bp(sp) {
+    .u-#{$type}#{$size}_sp {
+      @include max(#{$type}, $size);
+    }
+  }
+}
+
+/* Padding */
+@for $space from 1 through 90 {
+  @include space(p, $space);
+  @include space(pt, $space);
+  @include space(pb, $space);
+  @include space(pr, $space);
+  @include space(pl, $space);
+  @include space(m, $space);
+  @include space(mt, $space);
+  @include space(mb, $space);
+  @include space(mr, $space);
+  @include space(ml, $space);
+}

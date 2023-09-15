@@ -1,0 +1,139 @@
+/* ------------------------------------------------------------------
+ Bass
+ ------------------------------------------------------------------ */
+
+/*
+ base-font-size : 10px;
+ 62.5% = 10px = 1em = 1rem
+ (Default)
+*/
+html {
+	font-size: 62.5%;
+}
+
+body {
+	color: $text-color;
+	background-color: $bg-color;
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	min-height: -webkit-fill-available;
+	margin: auto;
+	padding: 0;
+	backface-visibility: hidden;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	@include gothic();
+	@include txt(body, main);
+
+	letter-spacing: 0.04em;
+
+	&::before {
+	}
+}
+// safariのみf
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+	_::-webkit-full-page-media,
+	_:future,
+	body {
+		font-weight: 600;
+	}
+}
+*,
+*::after,
+*::before {
+	backface-visibility: hidden;
+}
+// heading base style
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+}
+
+// txt base style
+p {
+	margin: 0;
+	padding: 0;
+}
+
+dd,
+dl,
+dt,
+li,
+ol,
+ul {
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: transparent;
+	margin: 0;
+	padding: 0;
+}
+
+li,
+ul {
+	list-style-type: none;
+}
+
+figure {
+	margin: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	padding: 0;
+	appearance: none;
+	color: inherit;
+	font-size: inherit;
+}
+
+fieldset {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+address {
+	font-style: normal;
+}
+
+::selection {
+	color: $select-color;
+	background: $select-bg;
+}
+
+button,
+input,
+select,
+textarea {
+	@include gothic;
+}
+
+// svg{
+//   transition: .4s ease-in-out;
+//   path{
+//     transition: .4s ease-in-out;
+//   }
+// }

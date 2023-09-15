@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { pageInfo } from "../libs/constants";
+import { Image } from "astro:assets";
+import illust from "../assets/img/common/illust_404.svg";
+import Logo from "../components/Logo.astro";
+const pageKey = "page404";
+const { pageTitle, pageNoindex } = pageInfo[pageKey];
+
+const title = pageTitle;
+const noindex = pageNoindex;
+const className = "page-lower page404";
+---
+
+<Layout pageTitle={title} pageNoindex={noindex} pageClass={className}>
+  <div class="lower_content">
+    <section class="section">
+      <div class="inner">
+        <a href="/" class="button">ホームへ戻る</a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script></script>
+<style lang="scss"></style>

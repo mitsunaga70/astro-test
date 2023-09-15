@@ -1,0 +1,36 @@
+---
+export interface Props {
+  value?: string;
+}
+const size = Astro.props.value || "middle";
+---
+
+<div class={`container ${size}`}>
+  <slot />
+</div>
+
+<style lang="scss">
+  $width: (
+    full: 1440,
+    large: 1360,
+    middle: 1070,
+    small: 1080,
+    xsmall: 820,
+  );
+  .container {
+    position: relative;
+  }
+  @each $name, $value in $width {
+    .#{$name} {
+      @include bp(pc) {
+        @include vw(maxW, $value);
+        @include vw(w, $value);
+        margin: auto;
+      }
+      @include bp(sp) {
+        padding: 0 $spGutter;
+        max-width: 100%;
+      }
+    }
+  }
+</style>

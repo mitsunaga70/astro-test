@@ -1,0 +1,72 @@
+---
+import { siteMeta } from "../libs/constants";
+const { siteTitle, siteDesc, siteUrl } = siteMeta;
+
+import faviconImg from "../assets/img/common/favicon.png";
+import ogpImg from "〇〇.jp/assets/img/common/ogp.gif";
+import appleImg from "../assets/img/common/apple-touch-icon.png";
+
+export interface Props {
+  pageTitle?: string;
+  pageDesc?: string;
+  pageNoindex?: boolean;
+  faviconImg?: {
+    src: string;
+  };
+  ogpImg?: {
+    src: string;
+  };
+  appleImg?: {
+    src: string;
+  };
+}
+
+const pageTitle = Astro.props?.pageTitle
+  ? `${Astro.props.pageTitle}｜${siteTitle}`
+  : siteTitle;
+
+const pageDesc = Astro.props?.pageDesc ?? siteDesc;
+
+const faviconSrc = new URL("/img/favicon.png", siteUrl);
+const ogpImageURL = new URL("/img/ogp.gif", siteUrl);
+const appleSrc = new URL("/img/apple-touch-icon.png", siteUrl);
+
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const metaRobots = Astro.props?.pageNoindex;
+const font =
+  "https://fonts.googleapis.com/css2?family=Heebo:wght@100;400;500;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap";
+---
+
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1.0,minimum-scale=1.0"
+/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="generator" content={Astro.generator} />
+<title>{pageTitle}</title>
+<meta content={pageDesc} name="description" />
+<link rel="icon" href={faviconSrc} />
+<link rel="apple-touch-icon" href={appleSrc} sizes="180x180" />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDesc} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={ogpImageURL} />
+<link rel="canonical" href={canonicalURL} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={canonicalURL} />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={pageDesc} />
+<meta name="twitter:image" content={ogpImageURL} />
+<!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href={font} />
+<link rel="stylesheet" media="print" onload="this.m
+edia = 'all'" href
+={font} />
+{metaRobots && <meta name="robots" content="noindex, follow" />}
+
+<!-- sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml" />

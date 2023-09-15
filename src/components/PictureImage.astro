@@ -1,0 +1,12 @@
+---
+export interface Type {
+  pc: string;
+  sp: string;
+  alt: string;
+}
+const { pc, sp,alt } = Astro.props;
+---
+<picture>
+  <source media="(min-width: 840px)" srcset={pc}/>
+  <source media="(max-width: 839px)" srcset={sp}/><img src={pc} alt={alt} decoding="async"/>
+</picture>
