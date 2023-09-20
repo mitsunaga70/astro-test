@@ -28,10 +28,9 @@ import { Image } from "astro:assets";
         <a href="/">topへ</a>
       </section>
     </div>
-    <Image src={gif1} alt="aa" width={gif1.width} height={gif1.height} />
-    <Image src={gif2} alt="aa" width={gif2.width} height={gif2.height} />
-    <Image src={gif3} alt="aa" width={gif3.width} height={gif3.height} />
-    <Image src={gif4} alt="aa" width={gif4.width} height={gif4.height} />
+    <figure transition:name="hero">
+      <Image src={gif1} alt="aa" width={gif1.width} height={gif1.height} />
+    </figure>
   </Container>
 </Layout>
 
