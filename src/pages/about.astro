@@ -1,44 +1,28 @@
 ---
+import { slide } from "astro/transitions";
 import Layout from "../layouts/Layout.astro";
-import SectionTitle from "../components/SectionTitle.astro";
-
-import { pageInfo } from "../libs/constants";
-import { Image } from "astro:assets";
-import { slide } from "astro:transitions";
-
 import Container from "../components/Container.astro";
-
-const pageKey = "TOP";
+const pageKey = "ABOUT";
 const className = "pageTop";
 ---
 
 <Layout pageClass={className}>
-  <div class="wrap">
-    <section class="section" transition:animate={slide({ duration: "0.2s" })}>
-      <Container>
-        <SectionTitle ja="テキスト" en="テキスト" />
-        <a href="/">top</a>
-      </Container>
-    </section>
-    <section class="section" transition:animate={slide({ duration: "0.4s" })}>
-      <Container>
-        <SectionTitle ja="テキスト" en="テキスト" />
-        <a href="/">top</a>
-      </Container>
-    </section>
-    <section class="section" transition:animate={slide({ duration: "0.6s" })}>
-      <Container>
-        <SectionTitle ja="テキスト" en="テキスト" />
-        <a href="/">top</a>
-      </Container>
-    </section>
-    <section class="section" transition:animate={slide({ duration: "0.8s" })}>
-      <Container>
-        <SectionTitle ja="テキスト" en="テキスト" />
-        <a href="/">top</a>
-      </Container>
-    </section>
-  </div>
+  <Container>
+    <div class="wrap">
+      <section class="section" transition:animate={slide({ duration: "0.2s" })}>
+        <a href="/">topへ</a>
+      </section>
+      <section class="section" transition:animate={slide({ duration: "0.4s" })}>
+        <a href="/">topへ</a>
+      </section>
+      <section class="section" transition:animate={slide({ duration: "0.6s" })}>
+        <a href="/">topへ</a>
+      </section>
+      <section class="section" transition:animate={slide({ duration: "0.8s" })}>
+        <a href="/">topへ</a>
+      </section>
+    </div>
+  </Container>
 </Layout>
 
 <script></script>
@@ -50,5 +34,9 @@ const className = "pageTop";
   section {
     background-color: red;
     width: 500px;
+  }
+  a {
+    @include fCenter();
+    height: 100px;
   }
 </style>

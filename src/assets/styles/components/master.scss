@@ -10,6 +10,9 @@
       @include max(mb, 8);
     }
 
+    @include bp(sp) {
+      color: red;
+    }
     &::before {
       content: "";
       display: block;

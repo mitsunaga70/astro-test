@@ -2,9 +2,9 @@
 import { siteMeta } from "../libs/constants";
 const { siteTitle, siteDesc, siteUrl } = siteMeta;
 
-import faviconImg from "../assets/img/common/favicon.png";
-import ogpImg from "〇〇.jp/assets/img/common/ogp.gif";
-import appleImg from "../assets/img/common/apple-touch-icon.png";
+import faviconImg from "../img/common/favicon.png";
+import ogpImg from "〇〇.jp/img/common/ogp.gif";
+import appleImg from "../img/common/apple-touch-icon.png";
 
 export interface Props {
   pageTitle?: string;
@@ -33,8 +33,6 @@ const appleSrc = new URL("/img/apple-touch-icon.png", siteUrl);
 
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const metaRobots = Astro.props?.pageNoindex;
-const font =
-  "https://fonts.googleapis.com/css2?family=Heebo:wght@100;400;500;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap";
 ---
 
 <meta charset="UTF-8" />
@@ -59,13 +57,6 @@ const font =
 <meta name="twitter:title" content={pageTitle} />
 <meta name="twitter:description" content={pageDesc} />
 <meta name="twitter:image" content={ogpImageURL} />
-<!-- font -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="style" href={font} />
-<link rel="stylesheet" media="print" onload="this.m
-edia = 'all'" href
-={font} />
 {metaRobots && <meta name="robots" content="noindex, follow" />}
 
 <!-- sitemap -->

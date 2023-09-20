@@ -127,7 +127,6 @@ img {
   border: none !important;
 }
 
-
 /* Font
 ------------------------------------------------------------------ */
 
@@ -276,37 +275,115 @@ img {
   width: 50%;
 }
 
-// margin & padding
-@mixin space($type, $size) {
-  .u-#{$type}#{$size} {
-    @include max(#{$type}, $size);
+/* Padding
+------------------------------------------------------------------ */
+@for $padding from 1 through 30 {
+  .u-p#{$padding * 4} {
+    padding: #{$padding * 4}px !important;
   }
-
+  .u-pt#{$padding * 4} {
+    padding-top: #{$padding * 4}px !important;
+  }
+  .u-pb#{$padding * 4} {
+    padding-bottom: #{$padding * 4}px !important;
+  }
+  .u-pr#{$padding * 4} {
+    padding-right: #{$padding * 4}px !important;
+  }
+  .u-pl#{$padding * 4} {
+    padding-left: #{$padding * 4}px !important;
+  }
   // PC
   @include bp(pc) {
-    .u-#{$type}#{$size}_pc {
-      @include max(#{$type}, $size);
+    .u-p#{$padding * 4}_pc {
+      padding: #{$padding * 4}px !important;
+    }
+    .u-pt#{$padding * 4}_pc {
+      padding-top: #{$padding * 4}px !important;
+    }
+    .u-pb#{$padding * 4}_pc {
+      padding-bottom: #{$padding * 4}px !important;
+    }
+    .u-pr#{$padding * 4}_pc {
+      padding-right: #{$padding * 4}px !important;
+    }
+    .u-pl#{$padding * 4}_pc {
+      padding-left: #{$padding * 4}px !important;
     }
   }
 
   // SP
   @include bp(sp) {
-    .u-#{$type}#{$size}_sp {
-      @include max(#{$type}, $size);
+    .u-p#{$padding * 4}_sp {
+      padding: #{$padding * 4}px !important;
+    }
+    .u-pt#{$padding * 4}_sp {
+      padding-top: #{$padding * 4}px !important;
+    }
+    .u-pb#{$padding * 4}_sp {
+      padding-bottom: #{$padding * 4}px !important;
+    }
+    .u-pr#{$padding * 4}_sp {
+      padding-right: #{$padding * 4}px !important;
+    }
+    .u-pl#{$padding * 4}_sp {
+      padding-left: #{$padding * 4}px !important;
     }
   }
 }
 
-/* Padding */
-@for $space from 1 through 90 {
-  @include space(p, $space);
-  @include space(pt, $space);
-  @include space(pb, $space);
-  @include space(pr, $space);
-  @include space(pl, $space);
-  @include space(m, $space);
-  @include space(mt, $space);
-  @include space(mb, $space);
-  @include space(mr, $space);
-  @include space(ml, $space);
+/* Margin
+------------------------------------------------------------------ */
+@for $margin from 1 through 30 {
+  .u-m#{$margin * 4} {
+    margin: #{$margin * 4}px !important;
+  }
+  .u-mt#{$margin * 4} {
+    margin-top: #{$margin * 4}px !important;
+  }
+  .u-mb#{$margin * 4} {
+    margin-bottom: #{$margin * 4}px !important;
+  }
+  .u-mr#{$margin * 4} {
+    margin-right: #{$margin * 4}px !important;
+  }
+  .u-ml#{$margin * 4} {
+    margin-left: #{$margin * 4}px !important;
+  }
+  // PC
+  @include bp(pc) {
+    .u-m#{$margin * 4}_pc {
+      margin: #{$margin * 4}px !important;
+    }
+    .u-mt#{$margin * 4}_pc {
+      margin-top: #{$margin * 4}px !important;
+    }
+    .u-mb#{$margin * 4}_pc {
+      margin-bottom: #{$margin * 4}px !important;
+    }
+    .u-mr#{$margin * 4}_pc {
+      margin-right: #{$margin * 4}px !important;
+    }
+    .u-ml#{$margin * 4}_pc {
+      margin-left: #{$margin * 4}px !important;
+    }
+  }
+  @include bp(sp) {
+    // SP
+    .u-m#{$margin * 4}_sp {
+      margin: #{$margin * 4}px !important;
+    }
+    .u-mt#{$margin * 4}_sp {
+      margin-top: #{$margin * 4}px !important;
+    }
+    .u-mb#{$margin * 4}_sp {
+      margin-bottom: #{$margin * 4}px !important;
+    }
+    .u-mr#{$margin * 4}_sp {
+      margin-right: #{$margin * 4}px !important;
+    }
+    .u-ml#{$margin * 4}_sp {
+      margin-left: #{$margin * 4}px !important;
+    }
+  }
 }

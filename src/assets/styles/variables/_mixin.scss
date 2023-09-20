@@ -7,11 +7,11 @@
   // font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
   // font-family: -apple-system ,YuGothic, "Yu Gothic Medium", "Yu Gothic", Meiryo, sans-serif;
   // font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
-  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-family: "Zen Kaku Gothic New", sans-serif;
 }
 
 @mixin sansserif {
-  font-family: 'Heebo', sans-serif;
+  font-family: "Heebo", sans-serif;
 }
 
 // box-shadow
@@ -20,14 +20,14 @@
 }
 
 // ライン
-@mixin hoverLine($color: $text-color,$first: false) {
+@mixin hoverLine($color: $text-color, $first: false) {
   @include bp(pc) {
     position: relative;
     @if $first {
-
-      a:hover &,&:hover {
+      a:hover &,
+      &:hover {
         &::before {
-          animation: .8s line-in-out cubic-bezier(0.65, 0, 0.35, 1) both;
+          animation: 0.8s line-in-out cubic-bezier(0.65, 0, 0.35, 1) both;
         }
       }
       &::before {
@@ -43,12 +43,15 @@
         opacity: 1;
       }
     } @else {
-      a:hover &,&:hover {
+      a:hover &,
+      &:hover {
         &::before {
           transform: scaleX(1);
           transform-origin: left top;
           opacity: 1;
-          transition: transform .5s cubic-bezier(0.65, 0, 0.35, 1),opacity .1s ;
+          transition:
+            transform 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+            opacity 0.1s;
         }
       }
       &::before {
@@ -62,21 +65,16 @@
         transform: scaleX(0);
         opacity: 0;
         transform-origin: right top;
-        transition: transform .5s cubic-bezier(0.65, 0, 0.35, 1),opacity .1s .5s ;
-
-
+        transition:
+          transform 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+          opacity 0.1s 0.5s;
       }
     }
-
-
-
-
   }
 
   @keyframes line-in-out {
     0% {
       transform-origin: right top;
-
     }
 
     50% {
@@ -92,7 +90,6 @@
       transform-origin: left top;
     }
   }
-
 }
 
 // ボタンアニメ
@@ -118,49 +115,43 @@
   animation: iconBlank 0.5s cubic-bezier(0.5, 1, 0.89, 1) both;
 }
 
-
 // position center
-@mixin pCenter($direction:'') {
-	position: absolute;
-  @if $direction == '' {
+@mixin pCenter($direction: "") {
+  position: absolute;
+  @if $direction == "" {
     top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   @if $direction == xy {
     top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $direction==x {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $direction==y {
+    top: 50%;
+    transform: translateY(-50%);
   }
-
-	@else if $direction==x {
-		left: 50%;
-		transform: translateX(-50%);
-	}
-	@else if $direction==y {
-		top: 50%;
-		transform: translateY(-50%);
-	}
 }
 // flexbox center
-@mixin fCenter($direction:'') {
+@mixin fCenter($direction: "") {
   display: flex;
-  @if $direction == '' {
-
+  @if $direction == "" {
     justify-content: center;
     align-items: center;
   }
-  @if $direction == 'xy' {
+  @if $direction == "xy" {
     justify-content: center;
     align-items: center;
   }
-  @if $direction == 'x' {
+  @if $direction == "x" {
     justify-content: center;
   }
-  @if $direction == 'y' {
+  @if $direction == "y" {
     align-items: center;
   }
-
 }
 // bg center
 @mixin bgCenter {
@@ -175,142 +166,96 @@
       opacity: 0.8;
     }
   }
-
 } // H1〜H4
 @mixin h_style() {
- // 共通
- @include maruGothic();
-
+  // 共通
+  @include maruGothic();
 }
 @mixin pc_h($type) {
- @if $type == 1 {
-  font-size: 4.6rem;
-   line-height: 1.8;
-   font-weight: $weight-m;
- } @else if $type == 2 {
-  font-size: 4rem;
-  line-height: 1.8;
-  font-weight: $weight-m;
- } @else if $type == 3 {
-  font-size: 2.6rem;
-  line-height: 1.6;
-  font-weight: $weight-b;
- } @else if $type == 4 {
-  font-size: 2.4rem;
-  line-height: 1.6;
-  letter-spacing: 0.03em;
-  font-weight: $weight-b;
- } @else if $type == 5 {
-  font-size: 2rem;
-  line-height: 1.6;
-  font-weight: $weight-b;
- } @else if $type == 6 {
-  font-size: 1.8rem;
-  line-height: 1.6;
-  font-weight: $weight-b;
- }
+  @if $type == 1 {
+    font-size: 4.6rem;
+    line-height: 1.8;
+    font-weight: $weight-m;
+  } @else if $type == 2 {
+    font-size: 4rem;
+    line-height: 1.8;
+    font-weight: $weight-m;
+  } @else if $type == 3 {
+    font-size: 2.6rem;
+    line-height: 1.6;
+    font-weight: $weight-b;
+  } @else if $type == 4 {
+    font-size: 2.4rem;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+    font-weight: $weight-b;
+  } @else if $type == 5 {
+    font-size: 2rem;
+    line-height: 1.6;
+    font-weight: $weight-b;
+  } @else if $type == 6 {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    font-weight: $weight-b;
+  }
 }
 @mixin sp_h($type) {
- @if $type == 1 {
-  font-size: 3.4rem;
-  line-height: 1.2;
-
- } @else if $type == 2 {
-  font-size: 3rem;
-  letter-spacing: 1.2;
-
- } @else if $type == 3 {
-  font-size: 2.5rem;
-   line-height: 1.5;
- }
- @else if $type == 4 {
-  font-size: 2.2rem;
-   line-height: 1.4;
- }
- @else if $type == 5 {
-  font-size: 2rem;
-   line-height: 1.2;
- }
- @else if $type == 6 {
-  font-size: 1.7rem;
-   line-height: 1.2;
- }
+  @if $type == 1 {
+    font-size: 3.4rem;
+    line-height: 1.2;
+  } @else if $type == 2 {
+    font-size: 3rem;
+    letter-spacing: 1.2;
+  } @else if $type == 3 {
+    font-size: 2.5rem;
+    line-height: 1.5;
+  } @else if $type == 4 {
+    font-size: 2.2rem;
+    line-height: 1.4;
+  } @else if $type == 5 {
+    font-size: 2rem;
+    line-height: 1.2;
+  } @else if $type == 6 {
+    font-size: 1.7rem;
+    line-height: 1.2;
+  }
 }
 
-@mixin h($type: '',$wid: '') {
- @for $i from 1 through 6 {
-   @if $type == $i {
-     @include h_style();
-     @if $wid == '' {
-       @include pc_h($i);
-       @include bp(sp) {
-         @include sp_h($i);
-       }
-     }
-     @if $wid == 'pc' {
-       @include pc_h($i);
-     }
-     @if $wid == 'sp' {
-       @include sp_h($i);
-     }
-   }
- }
-
+@mixin h($type: "", $wid: "") {
+  @for $i from 1 through 6 {
+    @if $type == $i {
+      @include h_style();
+      @if $wid == "" {
+        @include pc_h($i);
+        @include bp(sp) {
+          @include sp_h($i);
+        }
+      }
+      @if $wid == "pc" {
+        @include pc_h($i);
+      }
+      @if $wid == "sp" {
+        @include sp_h($i);
+      }
+    }
+  }
 }
 
 // text
-@mixin txt($type:'',$siz:'') {
-
- @if $type=='body' {
-   font-weight: $weight-b;
-   letter-spacing: 0em;
-   line-height: 1.6;
-   @include max(fz,16);
-   @if $siz=='' and $siz == main {
-    line-height: 1.6;
-   } @else if $siz == main_bold {
+@mixin txt($type: "", $siz: "") {
+  @if $type== "body" {
     font-weight: $weight-b;
-   } @else if $siz == main_link {
+    letter-spacing: 0em;
+    line-height: 1.6;
+    @include max(fz, 16);
+    @if $siz== "" and $siz == main {
+      line-height: 1.6;
+    } @else if $siz == main_bold {
+      font-weight: $weight-b;
+    } @else if $siz == main_link {
       text-decoration: underline;
-   }
- }
-
- @else if $type == 'buttonPC' {
-      font-size: 2rem;
-      line-height: 1.5;
-      font-weight: bold;
-  }
-  @else if $type == 'buttonSP' {
-    font-size: 1.8rem;
-    font-weight: bold;
-    line-height: 1.4;
-
-
-}
-  @else if $type == 'iconPC' {
-    @if $siz =='fill'{
-      font-size: 2.4rem;
-      font-weight: 900;
-      line-height: 1;
-     } @else if $siz == 'outline' {
-      font-size: 2.4rem;
-      font-weight: $weight-r;
-      line-height: 1;
-      }
     }
-    @else if $type == 'iconSP' {
-      @if $siz =='fill'{
-        font-size: 2rem;
-        font-weight: 900;
-        line-height: 1;
-       } @else if $siz == 'outline' {
-        font-size: 2rem;
-        font-weight: $weight-r;
-        line-height: 1;
-        }
-      }
-
-
+  }
 }
 
 // text ellipsis
@@ -321,7 +266,7 @@
 }
 
 // line-height
-@mixin lh($lh,$fz) {
+@mixin lh($lh, $fz) {
   line-height: $lh / $fz;
 }
 
@@ -334,40 +279,39 @@
 }
 
 // fonttelo icon font
-@mixin fontello ($content) {
+@mixin fontello($content) {
   font-family: "fontello";
   content: $content;
 }
 // fontawesome icon font
-@mixin fontawesome ($content:'',$type:'') {
-  @if ($type == '') {
+@mixin fontawesome($content: "", $type: "") {
+  @if ($type == "") {
     font-family: "Font Awesome 5 Free";
-}
-@else if ($type == brands) {
+  } @else if ($type == brands) {
     font-family: "Font Awesome 5 Brands";
-}
+  }
 
-  content: #{'"' + '\\' + $content + '"'};
+  content: #{'"' + "\\" + $content + '"'};
 }
 // 複数行 アンダーライン
-@mixin line ($color: #ff0, $height: 65%){
+@mixin line($color: #ff0, $height: 65%) {
   background: linear-gradient(transparent $height, $color 0%);
   display: inline;
 }
 
 // list width margin
-@mixin list ($ElmCount,$width,$mtValue) {
+@mixin list($ElmCount, $width, $mtValue) {
   $ElmCountPlusOne: $ElmCount + 1;
   $ElmCountMinusOne: $ElmCount - 1;
   $mlValue: (100% - ($width * $ElmCount)) / $ElmCountMinusOne;
   width: $width;
-    &:not(:nth-child(#{$ElmCount}n + 1)) {
-      margin-left: $mlValue;
-    }
-    &:nth-child(n + #{$ElmCountPlusOne}) {
-      margin-top: $mtValue;
-    }
+  &:not(:nth-child(#{$ElmCount}n + 1)) {
+    margin-left: $mlValue;
   }
+  &:nth-child(n + #{$ElmCountPlusOne}) {
+    margin-top: $mtValue;
+  }
+}
 // flex 3row ::after
 @mixin flexAfter($colWidth) {
   &::before,
@@ -381,21 +325,24 @@
 
 // formスタイルリセット
 @mixin formReset() {
-  input, button, textarea, select {
-      margin: 0;
-      padding: 0;
-      background: none;
-      border: none;
-      border-radius: 0;
-      outline: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
+  input,
+  button,
+  textarea,
+  select {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 }
 
-// browser　
-@mixin browser ($type) {
+// browser
+@mixin browser($type) {
   @if $type == ie {
     // Internet Explorer
     @media all and (-ms-high-contrast: none) {
@@ -448,44 +395,42 @@
 }
 
 // vw計算
-$pc-w: 1440;//pcのデザインカンプの幅を入力
-$sp-w: 375;//spのデザインカンプの幅を入力
-
+$pc-w: 1440; //pcのデザインカンプの幅を入力
+$sp-w: 375; //spのデザインカンプの幅を入力
 
 $propertys: (
-  'fz': font-size,
-  'w': width,
-  'h': height,
-  'minW': min-width,
-  'minH': min-height,
-  'maxW': max-width,
-  'maxH': max-height,
-  'm': margin,
-  'mt': margin-top,
-  'mb': margin-bottom,
-  'mr': margin-right,
-  'ml': margin-left,
-  'p': padding,
-  'pt': padding-top,
-  'pb': padding-bottom,
-  'pr': padding-right,
-  'pl': padding-left,
-  't': top,
-  'b': bottom,
-  'r': right,
-  'l': left,
-  'radius': border-radius,
-  'gap': gap,
-  'gapR': row-gap,
-  'gapC': column-gap,
+  "fz": font-size,
+  "w": width,
+  "h": height,
+  "minW": min-width,
+  "minH": min-height,
+  "maxW": max-width,
+  "maxH": max-height,
+  "m": margin,
+  "mt": margin-top,
+  "mb": margin-bottom,
+  "mr": margin-right,
+  "ml": margin-left,
+  "p": padding,
+  "pt": padding-top,
+  "pb": padding-bottom,
+  "pr": padding-right,
+  "pl": padding-left,
+  "t": top,
+  "b": bottom,
+  "r": right,
+  "l": left,
+  "radius": border-radius,
+  "gap": gap,
+  "gapR": row-gap,
+  "gapC": column-gap,
 );
 
 // vw
-@mixin vw($pro,$base,$wid:'') {
+@mixin vw($pro, $base, $wid: "") {
   @each $name, $property in $propertys {
-
     @if $pro == $name {
-      @if $wid == '' {
+      @if $wid == "" {
         @include bp(pc) {
           #{$property}: calc($base / $pc-w * 100) + vw;
         }
@@ -495,14 +440,13 @@ $propertys: (
       }
       @if $wid == pc {
         @include bp(pc) {
-          #{$property}:calc($base / $pc-w * 100) + vw;
+          #{$property}: calc($base / $pc-w * 100) + vw;
         }
       }
       @if $wid == sp {
         @include bp(sp) {
           #{$property}: calc($base / $sp-w * 100) + vw;
         }
-
       }
     }
   }
@@ -510,19 +454,41 @@ $propertys: (
 
 // unquote Clamp
 
-@mixin clamp($pro,$base,$wid:'') {
-  $valuePC: unquote('clamp(' + calc($base * 0.8) + 'px,' + calc($base / $pc-w * 100) + 'vw,' + ($base * 1.2) + 'px)');
-  $valueSP: unquote('clamp(' + calc($base * 0.8) + 'px,' + calc($base / $sp-w * 100) + 'vw,' + ($base * 1.2) + 'px)');
+@mixin clamp($pro, $base, $wid: "") {
+  $valuePC: unquote(
+    "clamp(" + calc($base * 0.8) + "px," + calc($base / $pc-w * 100) + "vw," +
+      ($base * 1.2) + "px)"
+  );
+  $valueSP: unquote(
+    "clamp(" + calc($base * 0.8) + "px," + calc($base / $sp-w * 100) + "vw," +
+      ($base * 1.2) + "px)"
+  );
 
   @each $name, $property in $propertys {
     @if #{$property} == fz {
       @if $base <= 12 {
-        $valuePC: unquote('clamp(' + $base + 'px,' + calc($base / $pc-w * 100) + 'vw,' + ($base * 1.2) + 'px)');
-        $valueSP: unquote('clamp(' + $base + 'px,' + calc($base / $sp-w * 100) + 'vw,' + ($base * 1.2) + 'px)');
+        $valuePC: unquote(
+          "clamp(" +
+            $base +
+            "px," +
+            calc($base / $pc-w * 100) +
+            "vw," +
+            ($base * 1.2) +
+            "px)"
+        );
+        $valueSP: unquote(
+          "clamp(" +
+            $base +
+            "px," +
+            calc($base / $sp-w * 100) +
+            "vw," +
+            ($base * 1.2) +
+            "px)"
+        );
       }
     }
     @if $pro == $name {
-      @if $wid == '' {
+      @if $wid == "" {
         @include bp(pc) {
           #{$property}: $valuePC;
         }
@@ -539,24 +505,31 @@ $propertys: (
         @include bp(sp) {
           #{$property}: $valueSP;
         }
-
       }
     }
   }
 }
-@mixin max($pro,$base,$wid:'') {
-  $valuePC: unquote('max(' + calc($base / $pc-w) * 100 + 'vw,'+ calc($base * 0.73) + 'px)');
-  $valueSP: unquote('max(' + calc($base / $sp-w * 100) + 'vw,'+ calc($base * 0.73) + 'px)');
+@mixin max($pro, $base, $wid: "") {
+  $valuePC: unquote(
+    "max(" + calc($base / $pc-w) * 100 + "vw," + calc($base * 0.73) + "px)"
+  );
+  $valueSP: unquote(
+    "max(" + calc($base / $sp-w * 100) + "vw," + calc($base * 0.73) + "px)"
+  );
 
   @each $name, $property in $propertys {
     @if #{$property} == fz {
       @if $base <= 12 {
-        $valuePC: unquote('max(' + calc($base / $pc-w * 100) + 'vw,'+ $base + 'px)');
-        $valueSP: unquote('max(' + calc($base / $sp-w * 100) + 'vw,'+ $base + 'px)');
+        $valuePC: unquote(
+          "max(" + calc($base / $pc-w * 100) + "vw," + $base + "px)"
+        );
+        $valueSP: unquote(
+          "max(" + calc($base / $sp-w * 100) + "vw," + $base + "px)"
+        );
       }
     }
     @if $pro == $name {
-      @if $wid == '' {
+      @if $wid == "" {
         @include bp(pc) {
           #{$property}: $valuePC;
         }
@@ -573,10 +546,7 @@ $propertys: (
         @include bp(sp) {
           #{$property}: $valueSP;
         }
-
       }
     }
-
   }
 }
-

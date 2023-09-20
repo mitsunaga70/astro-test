@@ -1,0 +1,18 @@
+---
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+---
+
+<div class="wrapper">
+  <Header />
+  <main transition:animate="slide">
+    <slot />
+  </main>
+  <Footer />
+</div>
+
+<script>
+  import "../assets/script/fade";
+  import "../assets/script/hash";
+  import "../assets/script/resizereload";
+</script>

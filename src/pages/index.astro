@@ -1,25 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SectionTitle from "../components/SectionTitle.astro";
-
-import { pageInfo } from "../libs/constants";
-import { Image } from "astro:assets";
-
-import Container from "../components/Container.astro";
-
-const pageKey = "TOP";
-const className = "pageTop";
 ---
 
-<Layout pageClass={className}>
-  <section class="section">
-    <Container>
-      <SectionTitle ja="テキスト" en="テキスト" />
-
-      <a href="/about/">aboutページへ</a>
-    </Container>
-  </section>
+<Layout>
+  <p class="">TOP</p>
+  <a href="/about/">about</a>
 </Layout>
-
-<script></script>
-<style lang="scss"></style>
+<style lang="scss">
+  p {
+    @include bp(sp) {
+    }
+  }
+</style>
