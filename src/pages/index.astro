@@ -1,10 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import gif1 from "../assets/img/top/fv_illust_01.gif";
+import gif2 from "../assets/img/top/fv_illust_02.gif";
+import gif3 from "../assets/img/top/fv_illust_03.gif";
+import gif4 from "../assets/img/top/fv_illust_04.gif";
+
+import { Image } from "astro:assets";
 ---
 
 <Layout>
   <p class="">TOP</p>
   <a href="/about/">about</a>
+  <Image src={gif1} alt="aa" width={gif1.width} height={gif1.height} />
+  <Image src={gif2} alt="aa" width={gif2.width} height={gif2.height} />
+  <Image src={gif3} alt="aa" width={gif3.width} height={gif3.height} />
+  <Image src={gif4} alt="aa" width={gif4.width} height={gif4.height} />
 </Layout>
 <style lang="scss">
   p {

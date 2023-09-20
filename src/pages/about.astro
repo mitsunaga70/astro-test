@@ -4,6 +4,12 @@ import Layout from "../layouts/Layout.astro";
 import Container from "../components/Container.astro";
 const pageKey = "ABOUT";
 const className = "pageTop";
+import gif1 from "../assets/img/top/fv_illust_01.gif";
+import gif2 from "../assets/img/top/fv_illust_02.gif";
+import gif3 from "../assets/img/top/fv_illust_03.gif";
+import gif4 from "../assets/img/top/fv_illust_04.gif";
+
+import { Image } from "astro:assets";
 ---
 
 <Layout pageClass={className}>
@@ -22,6 +28,10 @@ const className = "pageTop";
         <a href="/">topへ</a>
       </section>
     </div>
+    <Image src={gif1} alt="aa" width={gif1.width} height={gif1.height} />
+    <Image src={gif2} alt="aa" width={gif2.width} height={gif2.height} />
+    <Image src={gif3} alt="aa" width={gif3.width} height={gif3.height} />
+    <Image src={gif4} alt="aa" width={gif4.width} height={gif4.height} />
   </Container>
 </Layout>
 
