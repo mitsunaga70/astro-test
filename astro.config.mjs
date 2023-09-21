@@ -2,12 +2,13 @@ import { defineConfig } from 'astro/config';
 import postcssMergeQueries from "postcss-merge-queries";
 import sitemap from "@astrojs/sitemap";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [sitemap({
-    lastmod: new Date(),
-  })],
-
+    lastmod: new Date()
+  }), react()],
   vite: {
     css: {
       postcss: {
@@ -18,12 +19,12 @@ export default defineConfig({
           additionalData: `@import "src/assets/styles/variables.scss";`
         }
       }
-    },
+    }
   },
   server: {
     host: "192.168.30.28",
     port: 8080,
-    open: true,
+    open: true
   },
   site: 'https://〇〇.jp'
 });

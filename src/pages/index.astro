@@ -25,6 +25,21 @@ import { Image } from "astro:assets";
       <Image src={gif4} alt="aa" width={gif4.width} height={gif4.height} />
     </figure>
   </div>
+  <form method="post" action="https://hyperform.jp/api/3YfthOUP">
+    <div>
+      <label>お名前</label>
+      <input type="text" name="お名前" placeholder="例）山田太郎" required />
+    </div>
+    <div>
+      <label>メールアドレス</label>
+      <input type="email" name="email" placeholder="例）example@example.com" required />
+    </div>
+    <div>
+      <label>お問い合わせ内容</label>
+      <textarea name="お問い合わせ内容" required></textarea>
+    </div>
+    <button type="submit">送信</button>
+  </form>
 </Layout>
 <style lang="scss">
   a {
@@ -48,3 +63,4 @@ import { Image } from "astro:assets";
     }
   }
 </style>
+ ../components/Threeee
