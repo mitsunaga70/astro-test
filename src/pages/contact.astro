@@ -1,69 +1,49 @@
 ---
+import Container from "../components/Container.astro";
 import Layout from "../layouts/Layout.astro";
-import gif1 from "../assets/img/top/fv_illust_01.gif";
-import gif2 from "../assets/img/top/fv_illust_02.gif";
-import gif3 from "../assets/img/top/fv_illust_03.gif";
-import gif4 from "../assets/img/top/fv_illust_04.gif";
-
-import { Image } from "astro:assets";
 ---
 
 <Layout>
-  <p class="">TOP</p>
-  <a href="/about/">about</a>
-  <a href="/contact/">contact</a>
-  <div class="wrap">
-    <figure transition:name="hero">
-      <Image src={gif1} alt="aa" width={gif1.width} height={gif1.height} />
-    </figure>
-    <figure>
-      <Image src={gif2} alt="aa" width={gif2.width} height={gif2.height} />
-    </figure>
-    <figure>
-      <Image src={gif3} alt="aa" width={gif3.width} height={gif3.height} />
-    </figure>
-    <figure>
-      <Image src={gif4} alt="aa" width={gif4.width} height={gif4.height} />
-    </figure>
-  </div>
+  <Container value="xsmall">
+    <form method="post" action="https://hyperform.jp/api/xCnQTnQ4" enctype="multipart/form-data">
+      <ul>
+        <li>
+          <label>お名前</label>
+          <input type="text" name="お名前" placeholder="例）山田太郎" required />
+        </li>
+        <li>
+          <label>メールアドレス</label>
+          <input type="email" name="email" placeholder="例）example@example.com" required />
+        </li>
+        <li>
+          <label>添付ファイル</label>
+          <input type="file" name="添付ファイル" />
+        </li>
+      </ul>
+      <button type="submit">送信</button>
+    </form>
+  </Container>
 </Layout>
-<style lang="scss">
-  a {
-    display: block;
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    width: fit-content;
-    margin-inline: auto;
-  }
-  p {
-    @include bp(sp) {
-    }
-  }
-  .wrap {
-    display: flex;
-    margin-top: 100px;
-    img {
-      display: block;
-      width: 100%;
-    }
-  }
 
+<style lang="scss">
   form {
-    margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 720px;
   }
   @media screen and (max-width: 480px) {
     form {
       margin-top: 40px;
     }
   }
-
+  ul {
+  }
+  li {
+    display: flex;
+    margin-bottom: 1em;
+  }
   label {
     width: 100%;
-    max-width: 248px;
+    max-width: 160px;
     letter-spacing: 0.05em;
     font-weight: bold;
     font-size: 18px;
@@ -89,13 +69,12 @@ import { Image } from "astro:assets";
   input {
     border: 1px solid #ddd;
     border-radius: 6px;
-    margin-left: 40px;
+
     padding-left: 1em;
     padding-right: 1em;
     height: 48px;
     flex: 1;
     width: 100%;
-    max-width: 410px;
     background: #eaedf2;
     font-size: 18px;
   }
@@ -111,13 +90,12 @@ import { Image } from "astro:assets";
   textarea {
     border: 1px solid #ddd;
     border-radius: 6px;
-    margin-left: 40px;
+
     padding-left: 1em;
     padding-right: 1em;
     height: 216px;
     flex: 1;
     width: 100%;
-    max-width: 410px;
     background: #eaedf2;
     font-size: 18px;
   }
@@ -131,19 +109,15 @@ import { Image } from "astro:assets";
     }
   }
   button {
-    border-radius: 6px;
-    margin-top: 32px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 280px;
+    background-color: $text-color;
+    width: fit-content;
+    margin-inline: auto;
+    margin-top: 40px;
     display: block;
-    letter-spacing: 0.05em;
-    background: #545454;
-    color: #fff;
+    color: white;
+    padding: 1em 3em;
+    border-radius: 40px;
     font-weight: bold;
-    font-size: 20px;
   }
   @media screen and (max-width: 480px) {
     button {
