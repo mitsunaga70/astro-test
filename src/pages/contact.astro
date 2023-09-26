@@ -22,6 +22,122 @@ import Layout from "../layouts/Layout.astro";
       </ul>
       <button type="submit">送信</button>
     </form>
+
+    <form method="post" action="https://hyperform.jp/api/xCnQTnQ4">
+      <div>
+        <label>お名前</label>
+        <input type="text" name="お名前" placeholder="例）山田太郎" required />
+      </div>
+      <div>
+        <label>メールアドレス</label>
+        <input type="email" name="email" placeholder="例）example@example.com" required />
+      </div>
+      <div>
+        <label>注文内容</label>
+        <table>
+          <tbody>
+            <tr>
+              <th>キャップ</th>
+              <td>
+                <select name="商品[キャップ][カラー]">
+                  <option>赤</option>
+                  <option>青</option>
+                  <option>緑</option>
+                </select>
+              </td>
+              <td>
+                <select name="商品[キャップ][サイズ]">
+                  <option>S</option>
+                  <option>M</option>
+                  <option>L</option>
+                </select>
+              </td>
+              <td>
+                <input name="商品[キャップ][数量]" type="number" min="0" max="10" value="0" />
+              </td>
+              <td>個</td>
+            </tr>
+            <tr>
+              <th>アウター</th>
+              <td>
+                <select name="商品[アウター][カラー]">
+                  <option>赤</option>
+                  <option>青</option>
+                  <option>緑</option>
+                </select>
+              </td>
+              <td>
+                <select name="商品[アウター][サイズ]">
+                  <option>S</option>
+                  <option>M</option>
+                  <option>L</option>
+                </select>
+              </td>
+              <td>
+                <input name="商品[アウター][数量]" type="number" min="0" max="10" value="0" />
+              </td>
+              <td>個</td>
+            </tr>
+            <tr>
+              <th>パンツ</th>
+              <td>
+                <select name="商品[パンツ][カラー]">
+                  <option>赤</option>
+                  <option>青</option>
+                  <option>緑</option>
+                </select>
+              </td>
+              <td>
+                <select name="商品[パンツ][サイズ]">
+                  <option>S</option>
+                  <option>M</option>
+                  <option>L</option>
+                </select>
+              </td>
+              <td>
+                <input name="商品[パンツ][数量]" type="number" min="0" max="10" value="0" />
+              </td>
+              <td>個</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button type="submit">送信</button>
+    </form>
+
+    <form method="post" action="https://hyperform.jp/api/xCnQTnQ4">
+      <label>ペット</label>
+      <button type="button">+ ペットを追加</button>
+      <button type="submit">送信</button>
+    </form>
+
+    <template>
+      <div class="pet">
+        <label>お名前</label>
+        <input type="text" name="ペット[名前][]" required />
+        <label>性別</label>
+        <select type="text" name="ペット[性別][]" required>
+          <option disabled selected></option>
+          <option>男の子</option>
+          <option>女の子</option>
+        </select>
+        <label>品種</label>
+        <input type="text" name="ペット[種類][]" required />
+      </div>
+    </template>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const template = document.querySelector("template");
+        const addButton = document.querySelector("form button[type=button]");
+        const addMethod = () => {
+          const clone = template.content.cloneNode(true);
+          console.log({ clone });
+          addButton.insertAdjacentElement("beforebegin", clone.children[0]);
+        };
+        addButton.addEventListener("click", addMethod);
+        addMethod();
+      });
+    </script>
   </Container>
 </Layout>
 
