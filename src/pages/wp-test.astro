@@ -1,0 +1,28 @@
+---
+import Layouts from "../layouts/Layout.astro";
+
+let res = await fetch(`${import.meta.env.PUBLIC_API_URL}news?_embed`);
+let posts = await res.json();
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+  return `${year}.${month}.${day}`;
+}
+console.log(posts);
+---
+
+<Layouts>
+  <p>ああ</p>
+  {
+    posts.map((post: any) => (
+      <article>
+        <a href={`https://me.tv-osaka.co.jp/information/${post.slug}/`}>
+          <div class="title">{post.title.rendered}</div>
+          <div class="date">{formatDate(post.date)}</div>
+        </a>
+      </article>
+    ))
+  }
+</Layouts>
