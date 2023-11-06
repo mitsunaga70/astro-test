@@ -1,8 +1,9 @@
 ---
 import Layouts from "../layouts/Layout.astro";
 
-let res = await fetch(`${import.meta.env.PUBLIC_API_URL}news?_embed`);
-let posts = await res.json();
+// let res = await fetch(`${import.meta.env.PUBLIC_API_URL}news?_embed`);
+// let posts = await res.json();
+let posts = "";
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   const year = date.getFullYear();
@@ -10,7 +11,12 @@ function formatDate(dateString: string): string {
   const day = date.getDate().toString().padStart(2, "0");
   return `${year}.${month}.${day}`;
 }
-console.log(posts);
+try {
+  let res = await fetch(`${import.meta.env.PUBLIC_API_URL}news?_embed`);
+  posts = await res.json();
+} catch (error) {
+  console.error(`Failed to fetch posts: ${error.message}`);
+}
 ---
 
 <Layouts>
@@ -18,7 +24,7 @@ console.log(posts);
   {
     posts.map((post: any) => (
       <article>
-        <a href={`https://me.tv-osaka.co.jp/information/${post.slug}/`}>
+        <a href={`${post.slug}/`}>
           <div class="title">{post.title.rendered}</div>
           <div class="date">{formatDate(post.date)}</div>
         </a>
