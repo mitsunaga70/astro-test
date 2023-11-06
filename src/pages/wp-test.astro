@@ -3,6 +3,14 @@ import Layouts from "../layouts/Layout.astro";
 
 // let res = await fetch(`${import.meta.env.PUBLIC_API_URL}news?_embed`);
 // let posts = await res.json();
+let cachedData = {};
+const cache = async (key, handler) => {
+  if (!(key in cachedData)) {
+    cachedData[key] = await handler();
+  }
+  return cachedData[key];
+};
+
 let posts = "";
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
@@ -12,8 +20,10 @@ function formatDate(dateString: string): string {
   return `${year}.${month}.${day}`;
 }
 try {
-  let res = await fetch(`${import.meta.env.PUBLIC_API_URL}news?_embed`);
-  posts = await res.json();
+  posts = await cache("posts", async () => {
+    let res = await fetch(`${import.meta.env.PUBLIC_API_URL}news?_embed`);
+    return await res.json();
+  });
 } catch (error) {
   console.error(`Failed to fetch posts: ${error.message}`);
 }
